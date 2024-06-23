@@ -1,0 +1,28 @@
+body {
+  font-family: 'Work sans', sans-serif;
+}
+
+.password-container {
+    position: relative;
+  }
+
+  .password-container ::placeholder {
+    font-family: 'Work sans', sans-serif;
+  }
+  
+  .password-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #togglePassword {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    /* color: #ccc; */
+  }
+  

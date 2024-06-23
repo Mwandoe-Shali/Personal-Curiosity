@@ -1,0 +1,11 @@
+server_config=\
+"
+frontend  shali_frontend
+        bind *:80
+        mode http
+        default_backend shali_backend
+backend shali_backend
+        balance roundrobin
+        server 176572-web-01 18.204.3.143:80 check
+        server 176572-web-02 3.94.185.54:80 check
+"
