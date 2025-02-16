@@ -18,7 +18,8 @@
     // We're bundling all code in the end so this is the most appropriate option,
     // it's also important for autocomplete to work properly.
     // Use "node16" or "nodenext" for better module resolution
-    "moduleResolution": "node16", // Previous value "bundler",
+    "moduleResolution": "bundler", // "node16",
+    // Allow JSX
     "jsx": "preserve",
     "strict": true,
     // Allow default imports.
@@ -32,15 +33,15 @@
     },
     // Ensure type definitions are correctly resolved
     "typeRoots": [
+      // This is needed to properly support Vitest testing with jest-dom matchers.
+      // Types for jest-dom are not recognized automatically and Typescript complains
+      // about missing types e.g. when using `toBeInTheDocument` and other matchers.
+      "node_modules/@testing-library",
       // Specifying type roots overrides the default behavior of looking at the
       // node_modules/@types folder so we had to list it explicitly.
       // Source 1: https://www.typescriptlang.org/tsconfig#typeRoots
       // Source 2: https://github.com/testing-library/jest-dom/issues/546#issuecomment-1889884843
-      "node_modules/@types",
-      // This is needed to properly support Vitest testing with jest-dom matchers.
-      // Types for jest-dom are not recognized automatically and Typescript complains
-      // about missing types e.g. when using `toBeInTheDocument` and other matchers.
-      "node_modules/@testing-library"
+      "node_modules/@types"
     ],
     "outDir": ".wasp/out/user",
     // Enable modern TypeScript features
